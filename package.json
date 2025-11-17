@@ -1,0 +1,48 @@
+{
+  "name": "flinker-markdown",
+  "description": "Free TypeScript library for parsing markdown text (customisable, not standardized).",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dittner/FlinkerMD.git"
+  },
+  "keywords": [
+    "markdown, typescript"
+  ],
+  "author": "Alexander Dittner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dittner/FlinkerMD/issues"
+  },
+  "homepage": "https://github.com/Dittner/FlinkerMD",
+  "private": false,
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist/",
+    "index.ts",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && npm run build:esm",
+    "build:esm": "tsc --module es2020 --target es2020 --outDir dist/esm"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "typescript": "~5.7.2"
+  },
+  "peerDependencies": {
+  }
+}
