@@ -7,7 +7,7 @@ __FlinkerMD__ (MD) is a TypeScript library for parsing markdown text into html.
 npm i flinker-markdown
 ```
 
-## Example
+## Example 1
 ```ts
 import { md, MDGrammar, MDParser } from "flinker-markdown"
 import { div, TextProps } from "flinker-dom"
@@ -17,6 +17,7 @@ interface MarkdownProps extends TextProps {
   showRawText?: boolean
 }
 
+const grammar = new MDGrammar()
 const parser = new MDParser(grammar)
 export const Markdown = () => {
   return div<MarkdownProps>()
@@ -27,6 +28,30 @@ export const Markdown = () => {
       }
     })
 }
+```
+
+## Example 2: Custom grammar rule
+Parsing Bash code:
+```ts
+const grammar = new MDGrammar()
+const bash = new MDLineGrammarRule()
+bash.matcher = [/^>>> /, '> '] // begin text with symbols >>> to tranform line to bash code
+bash.postProccessing = highlightBashCode // define highlight-func: (v: string) => string
+grammar.globalRule.childrenLineRules.splice(0, 0, bash)
+grammar.ol.childrenLineRules.splice(0, 0, bash)
+grammar.ul.childrenLineRules.splice(0, 0, bash)
+
+const parser = new MDParser(grammar)
+export const Markdown = () => {...}
+```
+
+highlightBashCode-func transforms text from e.g.:
+```html
+>>> npm run install
+```
+to the tokenized form: 
+```html
+<pre class="bashcode-dark"><code class="md-dark"><span class="op">&gt; </span><span class="bash-cmd">npm </span><span class="bash-param">run </span><span class="bash-param">install</span></code></pre>
 ```
 
 ## License
