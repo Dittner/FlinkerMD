@@ -38,7 +38,7 @@ const bash = new MDLineGrammarRule()
 bash.matcher = [/^>>> /, '> '] // begin text with symbols >>> to tranform line to bash code
 bash.postProccessing = highlightBashCode // define highlight-func: (v: string) => string
 grammar.globalRule.childrenLineRules.splice(0, 0, bash)
-grammar.ol.childrenLineRules.splice(0, 0, bash)
+grammar.ol.childrenLineRules.splice(0, 0, bash) // allow lists to include bash code
 grammar.ul.childrenLineRules.splice(0, 0, bash)
 
 const parser = new MDParser(grammar)
