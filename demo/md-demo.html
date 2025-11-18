@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>flinker-markdown demo</title>
+ </head>
+ <body>
+<h1>FLINKER-MARKDOWN DEMO</h1>
+</br>
+<h2>Headers</h2>
+<div class="hstack">
+<div class="columnLeft">            
+# h1
+## h2
+### h3
+#### h4
+##### h5
+###### h6
+</div>
+<div class="columnRight">            
+<h1>h1</h1><h2>h2</h2><h3>h3</h3><h4>h4</h4><h5>h5</h5><h6>h6</h6>
+</div>
+</div>
+
+
+
+<h2>Ordered list (ol), unordered list (ul)</h2>
+<div class="hstack">
+<div class="columnLeft">
+```ol
+1. One
+1. Two
+```ul
++ A
++ B
+```
+_Some paragraph_
+1. Three
+```ul
++ C
+```ul
++ D
++ E
+_Some paragraph_
+```
++ F
+_Some paragraph_
+```
+```
+
+#### But
+1) A
+2) B
+
+1. C
+2. D
+
++ E
++ F
+</div>
+<div class="columnRight">
+    <ol><li>One</li><li>Two</li><ul><li>A</li><li>B</li></ul><p><i>Some paragraph</i></p><li>Three</li><ul><li>C</li><ul><li>D</li><li>E</li><p><i>Some paragraph</i></p></ul><li>F</li><p><i>Some paragraph</i></p></ul></ol><br><h4>But</h4><p>1) A</p><p>2) B</p><br><p>1. C</p><p>2. D</p><br><p>+ E</p><p>+ F</p>
+</div>
+</div>
+
+
+<h2>Formatting</h2>
+<div class="hstack">
+<div class="columnLeft">
+`Mark`, __bold__, _italic_ and ___italicbold___ formatting
+
+To ignore formating use backslash symbol '\':
+\_\_intro.html\_\_
+</div>
+<div class="columnRight">
+<p><em>Mark</em>, <b>bold</b>, <i>italic</i> and <strong>italicbold</strong> formatting</p>
+</br>
+<p>To ignore formating use backslash symbol '\':</p>
+<p>__intro.html__</p>
+</div>
+</div>
+
+
+<h2>Selection</h2>
+<div class="hstack">
+<div class="columnLeft">
+It's a `&lt;em>` mark tag.
+It supports inline formatting:
+`__bold__, _italic_ and ___italicbold___ formatting`
+
+__Note:__ Selection does not support multiline text:
+ABC `DE
+FG
+H`
+J
+</div>
+<div class="columnRight">
+<p>It's a <em>&lt;em&gt;</em> mark tag.</p><p>It supports inline formatting:</p><p><em><b>bold</b>, <i>italic</i> and <strong>italicbold</strong> formatting</em></p><br><p><b>Note:</b> Selection does not support multiline text:</p><p>ABC `DE</p><p>FG</p><p>H`</p><p>J</p>   
+</div>
+</div>
+
+
+
+<h2>Blockquote</h2>
+<div class="hstack">
+<div class="columnLeft">
+Cohesion
+> Cohesion refers to the degree to which the elements inside a module belong together.
+</div>
+<div class="columnRight">
+<p>Cohesion</p><blockquote><p>Cohesion refers to the degree to which the elements inside a module belong together.</p></blockquote>
+</div>
+</div>
+
+
+
+<h2>Alignment (custom div-element)</h2>
+<div class="hstack">
+<div class="columnLeft">
+=> _Center_ Aligned Text
+==> _Right_ Aligned Text
+
+__Note:__ Add to css:
+div.md-center {
+    width: 100%;
+    text-align: center;
+    font-size: inherit;
+    font-weight: inherit;
+    text-color: inherit;
+}
+
+div.md-right {
+    width: 100%;
+    text-align: right;
+    font-size: inherit;
+    font-weight: inherit;
+    text-color: inherit;
+}
+</div>
+<div class="columnRight">
+    <div class="md-center"><i>Center</i> Aligned Text</div><div class="md-right"><i>Right</i> Aligned Text</div><br><p>
+</div>
+</div>
+
+
+
+<h2>Link</h2>
+<div class="hstack">
+<div class="columnLeft">
+Links ignore inline formatting: underscores are not replaced with &lt;i> or &lt;b> tags.
+[flinker-markdown](https://www.npmjs.com/package/flinker-markdown)
+[](https://www.npmjs.com/package/flinker-markdown)
+</div>
+<div class="columnRight">
+    <p>Links ignore inline formatting: underscores are not replaced with &lt;i&gt; or &lt;b&gt; tags.</p><p><a href="https://www.npmjs.com/package/flinker-markdown">flinker-markdown</a></p><p><a href="https://www.npmjs.com/package/flinker-markdown">https://www.npmjs.com/package/flinker-markdown</a></p>
+</div>
+</div>
+
+
+
+<h2>Table</h2>
+<div class="hstack">
+<div class="columnLeft">
+```tbl
+__Name__,__ID__,__Joined At__,__Canceled At__,__Balance__
+Margaret Nguyen,427311,June 3, 2010,,0.00
+Edvard Galinski,533175,January 13, 2011,2017,37.00
+Hoshi Nakamura,601942,July 23, 2012,n/a,15.00
+```
+</div>
+<div class="columnRight">
+    <table><tbody><tr><td><b>Name</b></td><td><b>ID</b></td><td><b>Joined At</b></td><td><b>Canceled At</b></td><td><b>Balance</b></td></tr><tr><td>Margaret Nguyen</td><td>427311</td><td>June 3, 2010</td><td></td><td>0.00</td></tr><tr><td>Edvard Galinski</td><td>533175</td><td>January 13, 2011</td><td>2017</td><td>37.00</td></tr><tr><td>Hoshi Nakamura</td><td>601942</td><td>July 23, 2012</td><td>n/a</td><td>15.00</td></tr></tbody></table>
+</div>
+</div>
+
+
+
+<h2>Image</h2>
+<div class="hstack">
+<div class="columnLeft">
+## image
+![screenshot](chaplin.jpg)(Chaplin)
+
+=> Centered Image
+=> ![screenshot](chaplin.jpg)(Chaplin)
+</div>
+<div class="columnRight">
+    <p></p><figure><img alt="screenshot" src="chaplin.jpg"><figcaption>Chaplin</figcaption></figure><p></p><br><div class="md-center">Centered Image</div><div class="md-center"><figure><img alt="screenshot" src="chaplin.jpg"><figcaption>Chaplin</figcaption></figure></div>
+</div>
+</div>
+
+
+<h2>Custom div element</h2>
+<div class="hstack">
+<div class="columnLeft">
+```poem
+Lorem ipsum dolor sit amet
+_consectetur_ __adipiscing__ `elit`
+sed do eiusmod tempor incididunt
+```
+Add to css desired props:
+div.poem {
+    width: 100%;
+    text-align: center;
+    padding: 0px 20px;
+    font-size: 21px;
+    font-weight: inherit;
+    color: inherit;
+}
+</div>
+<div class="columnRight">
+    <div class="poem"><div><p>Lorem ipsum dolor sit amet</p><p><i>consectetur</i> <b>adipiscing</b> <em>elit</em></p><p>sed do eiusmod tempor incididunt</p></div></div>
+</div>
+</div>
+
+
+  
+ </body>
+</html>
