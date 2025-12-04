@@ -1,0 +1,24 @@
+### Paragraph customization
+Begin paragraph with a `tilde mark` to highlight a block of text: 
+~ The whole paragraph is highlighted.
+css:
+```code
+p.md-tilde {
+    color: white;
+}
+```
+
+Begin paragraph with a `exclamation mark` to urgently report information for warning: 
+! Attention! Required reading.
+css:
+```code
+p.md-warn {
+    color: #ff6161;
+    border: 1px solid #ff6161;
+    padding: 20px;
+}
+p.md-warn::before {
+  content: "⚠ ";
+  font-size: 1.2rem;
+}
+```

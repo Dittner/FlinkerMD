@@ -7,6 +7,14 @@ __FlinkerMD__ (MD) is a TypeScript library for parsing markdown text into html.
 npm i flinker-markdown
 ```
 
+## Demo
+```cli
+git clone https://github.com/Dittner/FlinkerMD
+cd FlinkerMD/MarkdownDemo
+npm install
+npm run dev
+```
+
 ## Example 1
 ```ts
 import { md, MDGrammar, MDParser } from "flinker-markdown"

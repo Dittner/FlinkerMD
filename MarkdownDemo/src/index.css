@@ -1,0 +1,221 @@
+:root {
+    --LineHeight: 1.6;
+    --font-family: -apple-system, 'system-ui', sans-serif;
+    --font-family-mono: Menlo, source-code-pro, Monaco, 'Courier New', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+    scroll-behavior: auto;
+    font-size: 18px;
+    text-size-adjust: 100%;
+    line-height: var(--LineHeight);
+    justify-content: space-between;
+    font-family: var(--font-family) !important;
+    /* -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: antialiased !important; */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    overscroll-behavior: none;
+    caret-shape: auto;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    color: #c0c1c2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body,
+p,
+a,
+b,
+i,
+table,
+tbody,
+th,
+tr,
+figure {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+::selection {
+    color: #111111;
+    background: #bc799f;
+}
+
+/******************************/
+/*-------- Formating --------*/
+/******************************/
+
+em {
+    color: #bfc271;
+    font-style: italic;
+}
+
+strong {
+    color: #ffffff;
+}
+
+/******************************/
+/*-------- Blockquote --------*/
+/******************************/
+
+blockquote {
+    margin: 0;
+    padding: 20px 100px;
+    font-style: italic;
+    text-decoration: none;
+}
+
+blockquote p::before {
+    content: "\201C";
+}
+
+blockquote p::after {
+    content: "\201D";
+}
+
+/******************************/
+/*---------- Table -----------*/
+/******************************/
+
+table {
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    border: 1px solid #888888;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #888888;
+}
+
+/******************************/
+/*---------- Links -----------*/
+/******************************/
+
+a {
+    color: #4984c8;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+a:hover {
+    color: #77b1f4;
+    cursor: pointer;
+}
+
+/******************************/
+/*---------- INPUT -----------*/
+/******************************/
+
+input {
+    font-size: 1rem;
+    min-height: 35px;
+    border-radius: unset;
+    outline: unset;
+    background: unset;
+    border: unset;
+}
+
+textarea {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    box-sizing: border-box;
+    background: none;
+    border: 1px solid #556b78;
+    color: #7dacaa;
+    caret-color: #ff6161;
+    resize: none;
+    outline: none;
+    overflow: hidden;
+    scroll-behavior: auto;
+    overscroll-behavior: none;
+}
+
+textarea:focus {
+    background-color: #7dacaa05;
+}
+
+/******************************/
+/*--------- video ---------*/
+/******************************/
+
+video {
+    width: 100%;
+    outline: none;
+}
+
+/******************************/
+/*-------- Customization -----*/
+/******************************/
+
+p.md-center {
+    width: 100%;
+    text-align: center;
+}
+
+p.md-right {
+    width: 100%;
+    text-align: right;
+}
+
+p.md-tilde {
+    color: white;
+}
+
+p.md-warn {
+    color: #ff6161;
+    border: 1px solid #ff6161;
+    padding: 20px;
+}
+
+p.md-warn::before {
+  content: "⚠ ";
+  font-size: 1.2rem;
+}
+
+
+div.code {
+    font-family: var(--font-family-mono);
+    font-size: 0.8rem;
+    color: #888888;
+    border: none;
+    text-align: left;
+    white-space: pre-wrap;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}

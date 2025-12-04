@@ -1,0 +1,15 @@
+`emphasized text`, __bold__, _italic_, ___italicbold___ and *strong* element
+
+To ignore formating use backslash symbol '\':
+\_\_intro.html\_\_
+
+### Emphasizing
+It's `<em>` mark tag.
+It supports inline formatting:
+`__bold__, _italic_ and ___italicbold___ formatting`
+
+__BUT:__ Multiline text ignores `<em>`:
+ABC `DE
+FG
+H`
+J

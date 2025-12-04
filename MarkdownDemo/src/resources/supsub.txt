@@ -1,0 +1,4 @@
+Almost every developer's favorite molecule is C_{8}H_{10}N_{4}O_{2}, also known as "caffeine."
+
+The _Pythagorean theorem_ is often expressed as the following equation:
+a^{2} + b^{2} = c^{2}

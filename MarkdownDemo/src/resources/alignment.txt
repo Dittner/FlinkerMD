@@ -1,0 +1,15 @@
+=> Centered text
+==> Right-aligned text
+
+css:
+```code
+.md-center {
+    width: 100%;
+    text-align: center;
+}
+
+.md-right {
+    width: 100%;
+    text-align: right;
+}
+```

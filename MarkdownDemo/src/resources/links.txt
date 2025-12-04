@@ -1,0 +1,3 @@
+Links ignore inline formatting: underscores are not replaced with &lt;i> or &lt;b> tags.
+[link:https://www.npmjs.com/package/flinker-markdown, flinker-markdown]
+[link:https://www.npmjs.com/package/flinker-markdown]

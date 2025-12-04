@@ -1,0 +1,5 @@
+Only image:
+[img:media/odyssey.png]
+
+Image with a legend (wrapped in figure-tag)
+[img:media/odyssey.png, 2001: A Space Odyssey]

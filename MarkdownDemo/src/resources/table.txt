@@ -1,0 +1,6 @@
+```tbl
+__Name__,__ID__,__Joined At__,__Canceled At__,__Balance__
+Margaret Nguyen,427311,June 3, 2010,,0.00
+Edvard Galinski,533175,January 13, 2011,2017,37.00
+Hoshi Nakamura,601942,July 23, 2012,n/a,15.00
+```
