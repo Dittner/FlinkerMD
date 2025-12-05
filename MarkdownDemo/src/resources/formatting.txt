@@ -1,6 +1,9 @@
 `emphasized text`, __bold__, _italic_, ___italicbold___ and *strong* element
 
-To ignore formating use backslash symbol '\':
+Begin paragraph with a `tilde mark` to make a paragraph strong: 
+~ The whole paragraph is strong.
+
+To ignore formatting use backslash symbol '\':
 \_\_intro.html\_\_
 
 ### Emphasizing

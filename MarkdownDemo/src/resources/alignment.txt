@@ -1,15 +1,13 @@
 => Centered text
 ==> Right-aligned text
 
-css:
-```code
-.md-center {
+[css]
+p.md-center {
     width: 100%;
     text-align: center;
 }
 
-.md-right {
+p.md-right {
     width: 100%;
     text-align: right;
 }
-```

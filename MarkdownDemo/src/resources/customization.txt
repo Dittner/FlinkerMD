@@ -1,24 +1,19 @@
-### Paragraph customization
-Begin paragraph with a `tilde mark` to highlight a block of text: 
-~ The whole paragraph is highlighted.
-css:
-```code
-p.md-tilde {
-    color: white;
-}
+Begin paragraph with "\`\`\`name" to create a <div>-element that has a class "name".
+Example:
+
+```warn
+__Attention__
+You need to create a new password that is longer and stronger to better protect your account.
 ```
 
-Begin paragraph with a `exclamation mark` to urgently report information for warning: 
-! Attention! Required reading.
-css:
-```code
-p.md-warn {
+[css]
+div.warn div{
     color: #ff6161;
     border: 1px solid #ff6161;
     padding: 20px;
 }
-p.md-warn::before {
+
+div.warn div p:first-child::before {
   content: "⚠ ";
   font-size: 1.2rem;
 }
-```

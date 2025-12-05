@@ -1,3 +1,15 @@
-Links ignore inline formatting: underscores are not replaced with &lt;i> or &lt;b> tags.
+Links ignore inline formatting: underscores are not replaced with <i> or <b> tags.
 [link:https://www.npmjs.com/package/flinker-markdown, flinker-markdown]
 [link:https://www.npmjs.com/package/flinker-markdown]
+
+[css]
+a {
+    color: #4984c8;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+a:hover {
+    color: #77b1f4;
+    cursor: pointer;
+}

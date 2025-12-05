@@ -4,6 +4,10 @@
     --font-family-mono: Menlo, source-code-pro, Monaco, 'Courier New', monospace;
 }
 
+.mono {
+    font-family: var(--font-family-mono);
+}
+
 * {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -85,7 +89,8 @@ strong {
 
 blockquote {
     margin: 0;
-    padding: 20px 100px;
+    padding: 20px;
+    text-align: center;
     font-style: italic;
     text-decoration: none;
 }
@@ -172,6 +177,27 @@ video {
 }
 
 /******************************/
+/*------------ button --------*/
+/******************************/
+
+button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 400;
+    border: none;
+    background: none;
+    text-align: center;
+    text-decoration: none;
+    white-space: pre;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+/******************************/
 /*-------- Customization -----*/
 /******************************/
 
@@ -189,19 +215,19 @@ p.md-tilde {
     color: white;
 }
 
-p.md-warn {
+div.warn div{
     color: #ff6161;
     border: 1px solid #ff6161;
     padding: 20px;
 }
 
-p.md-warn::before {
+div.warn div p:first-child::before {
   content: "⚠ ";
   font-size: 1.2rem;
 }
 
 
-div.code {
+.code {
     font-family: var(--font-family-mono);
     font-size: 0.8rem;
     color: #888888;

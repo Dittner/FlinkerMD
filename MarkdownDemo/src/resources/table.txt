@@ -4,3 +4,16 @@ Margaret Nguyen,427311,June 3, 2010,,0.00
 Edvard Galinski,533175,January 13, 2011,2017,37.00
 Hoshi Nakamura,601942,July 23, 2012,n/a,15.00
 ```
+
+[css]
+table {
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    border: 1px solid #888888;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #888888;
+}
