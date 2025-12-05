@@ -118,7 +118,7 @@ export class MDGrammar {
     //
 
     this.header = new MDLineGrammarRule()
-    this.header.matcher = [/^\$?(#{1,6}) (.*)$/, (line: string, signs: string, header: string) => {
+    this.header.matcher = [/^(#{1,6}) (.*)$/, (line: string, signs: string, header: string) => {
       const count = signs.length
       return '<h' + count + '>' + header + '</h' + count + '>'
     }]
