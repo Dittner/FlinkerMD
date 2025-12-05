@@ -14,7 +14,6 @@ import tableContent from "./resources/table.txt?raw";
 import videoContent from "./resources/video.txt?raw";
 import customizationContent from "./resources/customization.txt?raw";
 
-
 export function App() {
   const headerColor = '#248057'
   return vstack()
