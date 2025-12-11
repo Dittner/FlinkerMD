@@ -1,7 +1,7 @@
 {
   "name": "flinker-markdown",
   "description": "Free TypeScript library for parsing markdown text (customisable, not standardized).",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dittner/FlinkerMD.git"

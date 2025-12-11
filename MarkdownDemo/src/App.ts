@@ -105,8 +105,6 @@ const Example = (title: string, text: string) => {
                   s.mode = 'md'
                   s.width = '100%'
                   s.text = $state.value
-                  s.padding = '20px'
-                  s.bgColor = '#ffFFff05'
                 })
 
               $mode.value === 'css' && p()
@@ -155,10 +153,12 @@ const Btn = () => {
   const color = '#24adba'
   return btn()
     .react(s => {
+      s.className = 'mono'
+      s.fontSize = '0.9rem'
       s.paddingHorizontal = '20px'
       s.gap = '2px'
       s.textColor = color + 'bb'
-      s.cornerRadius = '4px'
+      s.cornerRadius = '2px'
     })
     .whenHovered(s => {
       s.textColor = color

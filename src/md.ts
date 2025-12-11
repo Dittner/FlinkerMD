@@ -101,13 +101,13 @@ export class MDGrammar {
     this.code.matcher = [/``([^`]+)``/g, '<code>$1</code>']
 
     this.figure = new MDInlineGrammarRule()
-    this.figure.matcher = [/\[img:([^, ]+), ?([^\]]+)\]/gm, '<figure><img src="$1"/><figcaption>$2</figcaption></figure>']
+    this.figure.matcher = [/\[img:([^, ]+), ?([^\]]+)\]/g, '<figure><img src="$1"/><figcaption>$2</figcaption></figure>']
 
     this.img = new MDInlineGrammarRule()
-    this.img.matcher = [/\[img:([^\]]+)\]/gm, '<img src="$1"/>']
+    this.img.matcher = [/\[img:([^\]]+)\]/g, '<img src="$1"/>']
 
     this.link = new MDInlineGrammarRule()
-    this.link.matcher = [/\[link:([^, ]+),? ?([^\]]*)\]/, (line: string, url: string, descr: string) => {
+    this.link.matcher = [/\[link:([^, \]]+),? *([^\]]*)\]/g, (line: string, url: string, descr: string) => {
       return '<a href="' + url + '">' + (descr || url) + '</a>'
     }]
 

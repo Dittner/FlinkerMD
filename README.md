@@ -21,7 +21,7 @@ import { div, TextProps } from "flinker-dom"
 import { md, MDGrammar, MDParser } from "flinker-markdown"
 
 interface MarkdownProps extends TextProps {
-  absolutePathPrefix?: string
+  absolutePathPrefix?: string //it will be added to the relative path of a media file [<a>, <img>, <audio>, <video>]
   mode: 'md' | 'rawText' | 'rawHtml'
 }
 
