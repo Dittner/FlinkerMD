@@ -162,7 +162,14 @@ export class MDGrammar {
     this.audio.matcher = [/\[audio:([^\]]+)\]/, '<audio controls src="$1"></audio>']
 
     this.video = new MDLineGrammarRule()
-    this.video.matcher = [/\[video:([^\]]+)\]/, '<video controls src="$1"></video>']
+    const videoReplacer = (_: string, url: string, params: string) => {
+      const keyValues = params ? params.split(/, */) : []
+      let res = '<video src="' + url + '"'
+      keyValues.forEach(kv => res += kv.replace(/^ *([^:]+):?(.*)$/, (_: string, key: string, value: string) => value ? ` ${key}="${value}"` : ` ${key}`))
+      res += '></video>'
+      return res
+    }
+    this.video.matcher = [/^\[video:([^, \]]+),? *([^\]]*)\]/, videoReplacer]
 
     this.stars = new MDLineGrammarRule()
     this.stars.matcher = [/^(\*{3,})/, '<p class="md-delim">$1</p>']

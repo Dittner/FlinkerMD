@@ -1,1 +1,1 @@
-[video:media/a_space_odyssey_trailer.mp4]
+[video:media/a_space_odyssey_trailer.mp4, controls, poster:media/a_space_odyssey_poster.png]
