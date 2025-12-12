@@ -46,6 +46,7 @@ export class MDGrammar {
   readonly alignRight: MDLineGrammarRule
   readonly tilde: MDLineGrammarRule
   readonly alignCenter: MDLineGrammarRule
+  readonly horRule: MDLineGrammarRule
   readonly stars: MDLineGrammarRule
   readonly p: MDLineGrammarRule
   readonly br: MDLineGrammarRule
@@ -171,6 +172,9 @@ export class MDGrammar {
     }
     this.video.matcher = [/^\[video:([^, \]]+),? *([^\]]*)\]/, videoReplacer]
 
+    this.horRule = new MDLineGrammarRule()
+    this.horRule.matcher = [/^---$/, '<hr/>']
+
     this.stars = new MDLineGrammarRule()
     this.stars.matcher = [/^(\*{3,})/, '<p class="md-delim">$1</p>']
 
@@ -179,7 +183,7 @@ export class MDGrammar {
     this.p.childrenInlineRules = this.globalRule.childrenInlineRules
     this.p.preProccessing = defLinePreproccessing
 
-    this.globalRule.childrenLineRules = [this.header, this.quote, this.alignCenter, this.alignRight, this.tilde, this.audio, this.video, this.stars, this.br, this.p]
+    this.globalRule.childrenLineRules = [this.header, this.quote, this.alignCenter, this.alignRight, this.tilde, this.audio, this.video, this.horRule, this.stars, this.br, this.p]
 
     //
     // MULTILINE GRAMMAR RULES
@@ -214,7 +218,7 @@ export class MDGrammar {
     this.div.startMatcher = [/^```([a-zA-Z]+) */, '<div class="$1"><div>']
     this.div.endMatcher = [/^``` *$/, '</div></div>']
     this.div.childrenInlineRules = this.globalRule.childrenInlineRules
-    this.div.childrenLineRules = [this.quote, this.alignCenter, this.alignRight, this.tilde, this.br, this.p]
+    this.div.childrenLineRules = [this.quote, this.alignCenter, this.alignRight, this.tilde, this.horRule, this.br, this.p]
     this.div.childrenMultilineRules = [this.div]
 
     this.globalRule.childrenMultilineRules = [this.ol, this.ul, this.table, this.div]

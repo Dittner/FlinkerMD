@@ -245,3 +245,13 @@ div.warn div p:first-child::before {
     margin: 0;
     outline: none;
 }
+
+/******************************/
+/*------------ hr ------------*/
+/******************************/
+hr {
+    size: 1px;
+    margin-bottom: 10px;
+    opacity: 0.5;
+    border: inherit;
+}

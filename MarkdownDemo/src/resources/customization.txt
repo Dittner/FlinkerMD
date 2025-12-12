@@ -3,6 +3,7 @@ Example:
 
 ```warn
 __Attention__
+---
 You need to create a new password that is longer and stronger to better protect your account.
 ```
 
@@ -16,4 +17,11 @@ div.warn div{
 div.warn div p:first-child::before {
   content: "⚠ ";
   font-size: 1.2rem;
+}
+
+hr {
+  size: 1px;
+  margin-bottom: 10px;
+  opacity: 0.5;
+  border: inherit;
 }
