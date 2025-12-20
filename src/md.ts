@@ -352,10 +352,18 @@ export class MDParser {
 }
 
 // const parser = new MDParser(new MDGrammar)
-export const md = (parser: MDParser, text: string, absolutePathPrefix?: string) => {
+export const md = (parser: MDParser, text: string, absolutePathPrefix?: string, mark?: string) => {
   let res = parser.run(text)
   // allow images and links to have a relative path
   if (absolutePathPrefix)
     res = res.replace(/src="((?!https?:)[^"]+)"/gm, 'src="' + absolutePathPrefix + '$1"')
+
+  if (mark)
+    res = res.replace(new RegExp('(' + escapeRegExp(mark) + ')', 'gi'), '<mark>$1</mark>')
+  
   return res
+}
+
+const escapeRegExp = (value: string) => {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
