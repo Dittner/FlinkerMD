@@ -1,0 +1,33 @@
+## Material Icons
+### [icon:checklist] Tasks
+[icon:check] Task 1
+[icon:check_box_outline_blank] Task 2
+[icon:check_box_outline_blank] Task 3
+
+### [icon:settings] Options
+[icon:radio_button_unchecked] Option 1
+[icon:radio_button_checked] Option 2
+[icon:radio_button_unchecked] Option 3
+
+What kind of weather do you like best?
+[icon:sunny] sunny, [icon:cloudy_snowing] rainy, [icon:wb_cloudy] cloudy, [icon:thunderstorm] stormy, [icon:snowing] snowy, [icon:severe_cold] cold, [icon:volcano] hot.
+
+[css]
+@font-face {
+    font-family: 'MaterialIcons';
+    font-style: normal;
+    src: url('resources/MaterialIcons.ttf') format('truetype');
+}
+
+span.md-icon {
+    font-family: 'MaterialIcons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: inherit;
+    vertical-align: -2px;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}

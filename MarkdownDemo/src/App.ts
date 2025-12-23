@@ -12,6 +12,7 @@ import quoteContent from "./resources/quote.txt?raw";
 import supsubContent from "./resources/supsub.txt?raw";
 import tableContent from "./resources/table.txt?raw";
 import videoContent from "./resources/video.txt?raw";
+import iconsContent from "./resources/icons.txt?raw";
 import customizationContent from "./resources/customization.txt?raw";
 
 export function App() {
@@ -49,6 +50,7 @@ export function App() {
       Example('Image', imageContent)
       Example('Audio', audioContent)
       Example('Video', videoContent)
+      Example('Icons', iconsContent)
       Example('Customization', customizationContent)
     })
 }

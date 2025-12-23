@@ -37,6 +37,7 @@ export class MDGrammar {
   readonly boldItalic: MDInlineGrammarRule
   readonly em: MDInlineGrammarRule
   readonly code: MDInlineGrammarRule
+  readonly icon: MDInlineGrammarRule
   readonly figure: MDInlineGrammarRule
   readonly img: MDInlineGrammarRule
   readonly link: MDInlineGrammarRule
@@ -101,6 +102,9 @@ export class MDGrammar {
     this.code = new MDInlineGrammarRule()
     this.code.matcher = [/``([^`]+)``/g, '<code>$1</code>']
 
+    this.icon = new MDInlineGrammarRule()
+    this.icon.matcher = [/\[icon:([^\]]+)\]/g, '<span class="md-icon">$1</span>']
+
     this.figure = new MDInlineGrammarRule()
     this.figure.matcher = [/\[img:([^, ]+), ?([^\]]+)\]/g, '<figure><img src="$1"/><figcaption>$2</figcaption></figure>']
 
@@ -112,7 +116,7 @@ export class MDGrammar {
       return '<a href="' + url + '">' + (descr || url) + '</a>'
     }]
 
-    this.globalRule.childrenInlineRules = [this.code, this.figure, this.img, this.link, this.sub, this.sup, this.strong, this.boldItalic, this.bold, this.em, this.italic]
+    this.globalRule.childrenInlineRules = [this.code, this.figure, this.img, this.link, this.icon, this.sub, this.sup, this.strong, this.boldItalic, this.bold, this.em, this.italic]
 
     // 
     // LINE GRAMMAR RULES
@@ -123,7 +127,7 @@ export class MDGrammar {
       const count = signs.length
       return '<h' + count + '>' + header + '</h' + count + '>'
     }]
-    this.header.childrenInlineRules = [this.strong, this.boldItalic, this.bold, this.italic]
+    this.header.childrenInlineRules = [this.strong, this.boldItalic, this.bold, this.italic, this.icon]
     this.header.preProccessing = defLinePreproccessing
 
     this.quote = new MDLineGrammarRule()
