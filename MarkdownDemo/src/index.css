@@ -27,6 +27,7 @@ html {
 body {
     margin: 0;
     font-family: var(--font-family);
+    line-height: 1.6;
     outline: none;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -40,6 +41,7 @@ body {
     word-break: normal;
     word-wrap: normal;
     color: #c0c1c2;
+    background-color: #111111;
 }
 
 h1,
