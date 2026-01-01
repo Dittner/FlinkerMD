@@ -65,6 +65,7 @@ const Example = (title: string, text: string) => {
   return vstack()
     .react(s => {
       s.paddingTop = '50px'
+      s.valign = 'top'
     })
     .children(() => {
       h2()
@@ -78,7 +79,6 @@ const Example = (title: string, text: string) => {
         .react(s => {
           s.width = '100%'
           s.gap = '20px'
-
         })
         .children(() => {
           textarea()
@@ -134,7 +134,7 @@ const ModeBtnBar = ($mode: RXObservableValue<Mode>) => {
       s.halign = 'center'
     })
     .children(() => {
-      
+
       Btn()
         .react(s => {
           s.text = 'md'

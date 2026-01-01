@@ -1,6 +1,6 @@
 ## Material Icons
 ### [icon:checklist] Tasks
-[icon:check] Task 1
+[icon:check_box] Task 1
 [icon:check_box_outline_blank] Task 2
 [icon:check_box_outline_blank] Task 3
 
