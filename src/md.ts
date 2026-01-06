@@ -197,14 +197,14 @@ export class MDGrammar {
     this.ul = new MDMultilineGrammarRule()
     this.ol.startMatcher = [/^```ol *$/, '<ol>']
     this.ol.endMatcher = [/^``` *$/, '</ol>']
-    this.ol.childrenLineRules = [this.oli, this.tilde, this.br, this.p]
     this.ol.childrenInlineRules = this.globalRule.childrenInlineRules
+    this.ol.childrenLineRules = [this.oli, this.tilde, this.br, this.p]
     this.ol.childrenMultilineRules = [this.ol, this.ul]
 
     this.ul.startMatcher = [/^```ul *$/, '<ul>']
     this.ul.endMatcher = [/^``` *$/, '</ul>']
-    this.ul.childrenLineRules = [this.uli, this.tilde, this.br, this.p]
     this.ul.childrenInlineRules = this.globalRule.childrenInlineRules
+    this.ul.childrenLineRules = [this.uli, this.tilde, this.br, this.p]
     this.ul.childrenMultilineRules = [this.ol, this.ul]
 
     this.table = new MDMultilineGrammarRule()
@@ -223,7 +223,7 @@ export class MDGrammar {
     this.div.endMatcher = [/^``` *$/, '</div></div>']
     this.div.childrenInlineRules = this.globalRule.childrenInlineRules
     this.div.childrenLineRules = [this.quote, this.alignCenter, this.alignRight, this.tilde, this.horRule, this.br, this.p]
-    this.div.childrenMultilineRules = [this.div]
+    this.div.childrenMultilineRules = [this.ol, this.ul, this.table, this.div]
 
     this.globalRule.childrenMultilineRules = [this.ol, this.ul, this.table, this.div]
   }
