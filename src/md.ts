@@ -44,6 +44,7 @@ export class MDGrammar {
 
   readonly header: MDLineGrammarRule
   readonly quote: MDLineGrammarRule
+  readonly footer: MDLineGrammarRule
   readonly alignRight: MDLineGrammarRule
   readonly tilde: MDLineGrammarRule
   readonly alignCenter: MDLineGrammarRule
@@ -56,6 +57,7 @@ export class MDGrammar {
   readonly audio: MDLineGrammarRule
   readonly video: MDLineGrammarRule
 
+  readonly quoteMultiline: MDMultilineGrammarRule
   readonly ol: MDMultilineGrammarRule
   readonly ul: MDMultilineGrammarRule
   readonly table: MDMultilineGrammarRule
@@ -135,6 +137,11 @@ export class MDGrammar {
     this.quote.childrenInlineRules = this.globalRule.childrenInlineRules
     this.quote.preProccessing = defLinePreproccessing
 
+    this.footer = new MDLineGrammarRule()
+    this.footer.matcher = [/^@ *(.*) *$/, '<footer>$1</footer>']
+    this.footer.childrenInlineRules = this.globalRule.childrenInlineRules
+    this.footer.preProccessing = defLinePreproccessing
+
     this.tilde = new MDLineGrammarRule()
     this.tilde.matcher = [/^~ (.*)$/, '<p><strong>$1</strong></p>']
     this.tilde.childrenInlineRules = this.globalRule.childrenInlineRules
@@ -187,11 +194,18 @@ export class MDGrammar {
     this.p.childrenInlineRules = this.globalRule.childrenInlineRules
     this.p.preProccessing = defLinePreproccessing
 
-    this.globalRule.childrenLineRules = [this.header, this.quote, this.alignCenter, this.alignRight, this.tilde, this.audio, this.video, this.horRule, this.stars, this.br, this.p]
+    this.globalRule.childrenLineRules = [this.header, this.tilde, this.quote, this.alignCenter, this.alignRight, this.footer, this.audio, this.video, this.horRule, this.stars, this.br, this.p]
 
     //
     // MULTILINE GRAMMAR RULES
     //
+
+    
+    this.quoteMultiline = new MDMultilineGrammarRule()
+    this.quoteMultiline.startMatcher = [/^>> *$/, '<blockquote>']
+    this.quoteMultiline.endMatcher = [/^<< *$/, '</blockquote>']
+    this.quoteMultiline.childrenInlineRules = this.globalRule.childrenInlineRules
+    this.quoteMultiline.childrenLineRules = [this.footer, this.alignCenter, this.alignRight, this.tilde, this.horRule, this.br, this.p]
 
     this.ol = new MDMultilineGrammarRule()
     this.ul = new MDMultilineGrammarRule()
@@ -222,10 +236,10 @@ export class MDGrammar {
     this.div.startMatcher = [/^```([a-zA-Z]+) */, '<div class="$1"><div>']
     this.div.endMatcher = [/^``` *$/, '</div></div>']
     this.div.childrenInlineRules = this.globalRule.childrenInlineRules
-    this.div.childrenLineRules = [this.quote, this.alignCenter, this.alignRight, this.tilde, this.horRule, this.br, this.p]
-    this.div.childrenMultilineRules = [this.ol, this.ul, this.table, this.div]
+    this.div.childrenLineRules = [this.quote, this.tilde, this.alignCenter, this.alignRight, this.footer, this.horRule, this.br, this.p]
+    this.div.childrenMultilineRules = [this.ol, this.ul, this.table, this.quoteMultiline, this.div]
 
-    this.globalRule.childrenMultilineRules = [this.ol, this.ul, this.table, this.div]
+    this.globalRule.childrenMultilineRules = [this.ol, this.ul, this.table, this.quoteMultiline, this.div]
   }
 }
 

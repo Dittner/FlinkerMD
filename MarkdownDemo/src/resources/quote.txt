@@ -1,19 +1,35 @@
+One line quote:
 > Man muss noch Chaos in sich haben, um einen tanzenden Stern gebären zu können.
-— Friedrich Nietzsche
+
+Multiline quote with footer:
+>>
+Gott ist tot. Gott bleibt tot: Und wir haben ihn getötet!
+@ — Friedrich Nietzsche
+<<
 
 [css]
 blockquote {
     margin: 0;
     padding: 20px;
     text-align: center;
-    font-style: italic;
+    font-style: normal;
     text-decoration: none;
+    color: #bc799f;
+    border-left: 1px solid #bc799f;
+    background-color: #bc799f10;
 }
 
 blockquote p::before {
-    content: "\201C";
+    content: "»";
 }
 
 blockquote p::after {
-    content: "\201D";
+    content: "«";
+}
+
+blockquote footer {
+    width: 100%;
+    font-style: italic;
+    text-align: right;
+    color: #dc8fbb;
 }
