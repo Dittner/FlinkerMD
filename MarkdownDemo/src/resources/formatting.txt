@@ -1,6 +1,6 @@
-`emphasized text`, __bold__, _italic_, ___italicbold___ and *strong* element
+`emphasized text`, __bold__, _italic_, ___italicbold___ and ~strong~ element
 
-Begin paragraph with a `tilde mark` to make a paragraph strong: 
+Begin paragraph with a _tilde mark_ to make a paragraph strong: 
 ~ The whole paragraph is strong.
 
 To ignore formatting use backslash symbol '\':
@@ -16,3 +16,17 @@ ABC `DE
 FG
 H`
 J
+
+[css]
+p {
+    color: #c0c1c2;
+}
+
+em {
+    color: #bfc271;
+    font-style: italic;
+}
+
+strong {
+    color: #d76565;
+}

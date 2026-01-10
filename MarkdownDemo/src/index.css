@@ -73,6 +73,9 @@ figure {
 /******************************/
 /*-------- Formating --------*/
 /******************************/
+p {
+    color: #c0c1c2;
+}
 
 em {
     color: #bfc271;
@@ -80,7 +83,7 @@ em {
 }
 
 strong {
-    color: #ffffff;
+    color: #d76565;
 }
 
 /******************************/
@@ -89,13 +92,10 @@ strong {
 
 blockquote {
     margin: 0;
-    padding: 20px;
-    text-align: center;
+    padding: 10px;
     font-style: normal;
     text-decoration: none;
     color: #bc799f;
-    border-left: 1px solid #bc799f;
-    background-color: #bc799f10;
 }
 
 blockquote p::before {
@@ -109,7 +109,6 @@ blockquote p::after {
 blockquote footer {
     width: 100%;
     font-style: italic;
-    text-align: right;
     color: #dc8fbb;
 }
 

@@ -46,7 +46,7 @@ export class MDGrammar {
   readonly quote: MDLineGrammarRule
   readonly footer: MDLineGrammarRule
   readonly alignRight: MDLineGrammarRule
-  readonly tilde: MDLineGrammarRule
+  readonly strongParagraph: MDLineGrammarRule
   readonly alignCenter: MDLineGrammarRule
   readonly horRule: MDLineGrammarRule
   readonly stars: MDLineGrammarRule
@@ -86,7 +86,7 @@ export class MDGrammar {
     this.sub.matcher = [/_\{([^}]+)\}/g, '<sub>$1</sub>']
 
     this.strong = new MDInlineGrammarRule()
-    this.strong.matcher = [/\*([^*]+)\*/g, '<strong>$1</strong>']
+    this.strong.matcher = [/~([^~]+)~/g, '<strong>$1</strong>']
 
     this.boldItalic = new MDInlineGrammarRule()
     this.boldItalic.matcher = [/_{3,}([^_]+)_{3,}/g, '<b><i>$1</i></b>']
@@ -142,10 +142,10 @@ export class MDGrammar {
     this.footer.childrenInlineRules = this.globalRule.childrenInlineRules
     this.footer.preProccessing = defLinePreproccessing
 
-    this.tilde = new MDLineGrammarRule()
-    this.tilde.matcher = [/^~ (.*)$/, '<p><strong>$1</strong></p>']
-    this.tilde.childrenInlineRules = this.globalRule.childrenInlineRules
-    this.tilde.preProccessing = defLinePreproccessing
+    this.strongParagraph = new MDLineGrammarRule()
+    this.strongParagraph.matcher = [/^~ ([^~]*)$/, '<p><strong>$1</strong></p>']
+    this.strongParagraph.childrenInlineRules = this.globalRule.childrenInlineRules
+    this.strongParagraph.preProccessing = defLinePreproccessing
 
     this.alignRight = new MDLineGrammarRule()
     this.alignRight.matcher = [/^==> (.*)$/, '<p class="md-right">$1</p>']
@@ -194,7 +194,7 @@ export class MDGrammar {
     this.p.childrenInlineRules = this.globalRule.childrenInlineRules
     this.p.preProccessing = defLinePreproccessing
 
-    this.globalRule.childrenLineRules = [this.header, this.tilde, this.quote, this.alignCenter, this.alignRight, this.footer, this.audio, this.video, this.horRule, this.stars, this.br, this.p]
+    this.globalRule.childrenLineRules = [this.header, this.strongParagraph, this.quote, this.alignCenter, this.alignRight, this.footer, this.audio, this.video, this.horRule, this.stars, this.br, this.p]
 
     //
     // MULTILINE GRAMMAR RULES
@@ -205,20 +205,20 @@ export class MDGrammar {
     this.quoteMultiline.startMatcher = [/^>> *$/, '<blockquote>']
     this.quoteMultiline.endMatcher = [/^<< *$/, '</blockquote>']
     this.quoteMultiline.childrenInlineRules = this.globalRule.childrenInlineRules
-    this.quoteMultiline.childrenLineRules = [this.footer, this.alignCenter, this.alignRight, this.tilde, this.horRule, this.br, this.p]
+    this.quoteMultiline.childrenLineRules = [this.footer, this.alignCenter, this.alignRight, this.strongParagraph, this.horRule, this.br, this.p]
 
     this.ol = new MDMultilineGrammarRule()
     this.ul = new MDMultilineGrammarRule()
     this.ol.startMatcher = [/^```ol *$/, '<ol>']
     this.ol.endMatcher = [/^``` *$/, '</ol>']
     this.ol.childrenInlineRules = this.globalRule.childrenInlineRules
-    this.ol.childrenLineRules = [this.oli, this.tilde, this.br, this.p]
+    this.ol.childrenLineRules = [this.oli, this.strongParagraph, this.br, this.p]
     this.ol.childrenMultilineRules = [this.ol, this.ul]
 
     this.ul.startMatcher = [/^```ul *$/, '<ul>']
     this.ul.endMatcher = [/^``` *$/, '</ul>']
     this.ul.childrenInlineRules = this.globalRule.childrenInlineRules
-    this.ul.childrenLineRules = [this.uli, this.tilde, this.br, this.p]
+    this.ul.childrenLineRules = [this.uli, this.strongParagraph, this.br, this.p]
     this.ul.childrenMultilineRules = [this.ol, this.ul]
 
     this.table = new MDMultilineGrammarRule()
@@ -236,7 +236,7 @@ export class MDGrammar {
     this.div.startMatcher = [/^```([a-zA-Z]+) */, '<div class="$1"><div>']
     this.div.endMatcher = [/^``` *$/, '</div></div>']
     this.div.childrenInlineRules = this.globalRule.childrenInlineRules
-    this.div.childrenLineRules = [this.quote, this.tilde, this.alignCenter, this.alignRight, this.footer, this.horRule, this.br, this.p]
+    this.div.childrenLineRules = [this.quote, this.strongParagraph, this.alignCenter, this.alignRight, this.footer, this.horRule, this.br, this.p]
     this.div.childrenMultilineRules = [this.ol, this.ul, this.table, this.quoteMultiline, this.div]
 
     this.globalRule.childrenMultilineRules = [this.ol, this.ul, this.table, this.quoteMultiline, this.div]
