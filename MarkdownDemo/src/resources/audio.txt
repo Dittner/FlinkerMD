@@ -1,1 +1,16 @@
+Default browser player:
 [audio:media/three_laws_of_robotics.mp3]
+
+[audio:media/three_laws_of_robotics.mp3, Tree laws of robotics (figcaption):]
+
+[css]
+audio {
+    display: block;
+}
+
+figcaption {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #c0c1c288;
+}

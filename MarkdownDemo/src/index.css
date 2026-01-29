@@ -65,6 +65,17 @@ figure {
     text-decoration: none;
 }
 
+figcaption {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #c0c1c288;
+}
+
+audio {
+    display: block;
+}
+
 ::selection {
     color: #111111;
     background: #bc799f;

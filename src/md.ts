@@ -54,6 +54,7 @@ export class MDGrammar {
   readonly oli: MDLineGrammarRule
   readonly uli: MDLineGrammarRule
   readonly audio: MDLineGrammarRule
+  readonly audioAndCaption: MDLineGrammarRule
   readonly video: MDLineGrammarRule
 
   readonly quoteMultiline: MDMultilineGrammarRule
@@ -130,7 +131,7 @@ export class MDGrammar {
       const count = signs.length
       return '<h' + count + '>' + header + '</h' + count + '>'
     }]
-    this.header.childrenInlineRules = [this.strong, this.boldItalic, this.bold, this.italic, this.icon]
+    this.header.childrenInlineRules = [this.strong, this.boldItalic, this.bold, this.italic, this.code, this.em, this.icon]
     this.header.preProccessing = this.defLinePreproccessing
 
     this.quote = new MDLineGrammarRule()
@@ -166,8 +167,11 @@ export class MDGrammar {
     this.uli.childrenInlineRules = this.globalRule.childrenInlineRules
     this.uli.preProccessing = this.defLinePreproccessing
 
+    this.audioAndCaption = new MDLineGrammarRule()
+    this.audioAndCaption.matcher = [/^\[audio:([^, ]+), ?([^\]]+)\]$/, '<figure><figcaption>$2</figcaption><audio controls src="$1"></audio></figure>']
+
     this.audio = new MDLineGrammarRule()
-    this.audio.matcher = [/\[audio:([^\]]+)\]/, '<audio controls src="$1"></audio>']
+    this.audio.matcher = [/^\[audio:([^\]]+)\]$/, '<audio controls src="$1"></audio>']
 
     this.video = new MDLineGrammarRule()
     const videoReplacer = (_: string, url: string, params: string) => {
@@ -190,7 +194,7 @@ export class MDGrammar {
     this.p.childrenInlineRules = this.globalRule.childrenInlineRules
     this.p.preProccessing = this.defLinePreproccessing
 
-    this.globalRule.childrenLineRules = [this.header, this.quote, this.alignCenter, this.alignRight, this.footer, this.audio, this.video, this.horRule, this.stars, this.br, this.p]
+    this.globalRule.childrenLineRules = [this.header, this.quote, this.alignCenter, this.alignRight, this.footer, this.audioAndCaption, this.audio, this.video, this.horRule, this.stars, this.br, this.p]
 
     //
     // MULTILINE GRAMMAR RULES

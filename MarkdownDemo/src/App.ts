@@ -17,6 +17,7 @@ import customizationContent from "./resources/customization.txt?raw";
 
 export function App() {
   const headerColor = '#248057'
+  
   return vstack()
     .react(s => {
       s.width = '100%'
