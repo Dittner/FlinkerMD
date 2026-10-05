@@ -6,9 +6,13 @@ interface MarkdownProps extends TextProps {
   mode: 'md' | 'rawText' | 'rawHtml'
 }
 
-const g = new MDGrammar()
-const parser = new MDParser(g)
+// CUSTOM GRAMMAR RULES
+const grammar = new MDGrammar()
+// const figureCaption = new MDInlineGrammarRule()
+// figureCaption.matcher = [/\[cap:([^\]]+)\]/g, '<span class="md-caption">$1</span>']
+// grammar.globalRule.childrenInlineRules.unshift(figureCaption)
 
+const parser = new MDParser(grammar)
 export const Markdown = () => {
   return div<MarkdownProps>()
     .map(s => {

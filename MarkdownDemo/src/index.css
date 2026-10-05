@@ -65,10 +65,8 @@ figure {
     text-decoration: none;
 }
 
-figcaption {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+.md-caption {
+    font-size: 0.9rem;
     color: #c0c1c288;
 }
 

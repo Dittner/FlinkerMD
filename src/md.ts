@@ -40,6 +40,7 @@ export class MDGrammar {
   readonly icon: MDInlineGrammarRule
   readonly figure: MDInlineGrammarRule
   readonly img: MDInlineGrammarRule
+  readonly caption: MDInlineGrammarRule
   readonly link: MDInlineGrammarRule
 
   readonly header: MDLineGrammarRule
@@ -115,12 +116,15 @@ export class MDGrammar {
     this.img = new MDInlineGrammarRule()
     this.img.matcher = [/\[img:([^\]]+)\]/g, '<img src="$1"/>']
 
+    this.caption = new MDInlineGrammarRule()
+    this.caption.matcher = [/\[cap:([^\]]+)\]/g, '<span class="md-caption">$1</span>']
+
     this.link = new MDInlineGrammarRule()
     this.link.matcher = [/\[link:([^, \]]+),? *([^\]]*)\]/g, (line: string, url: string, descr: string) => {
       return '<a href="' + url + '">' + (descr || url) + '</a>'
     }]
 
-    this.globalRule.childrenInlineRules = [this.code, this.figure, this.img, this.link, this.icon, this.sub, this.sup, this.strong, this.boldItalic, this.bold, this.em, this.italic]
+    this.globalRule.childrenInlineRules = [this.code, this.figure, this.img, this.caption, this.link, this.icon, this.sub, this.sup, this.strong, this.boldItalic, this.bold, this.em, this.italic]
 
     // 
     // LINE GRAMMAR RULES
@@ -168,7 +172,7 @@ export class MDGrammar {
     this.uli.preProccessing = this.defLinePreproccessing
 
     this.audioAndCaption = new MDLineGrammarRule()
-    this.audioAndCaption.matcher = [/^\[audio:([^, ]+), ?([^\]]+)\]$/, '<figure><figcaption>$2</figcaption><audio controls src="$1"></audio></figure>']
+    this.audioAndCaption.matcher = [/^\[audio:([^, ]+), ?([^\]]+)\]$/, '<figure><audio controls src="$1"></audio><figcaption>$2</figcaption></figure>']
 
     this.audio = new MDLineGrammarRule()
     this.audio.matcher = [/^\[audio:([^\]]+)\]$/, '<audio controls src="$1"></audio>']
@@ -200,7 +204,6 @@ export class MDGrammar {
     // MULTILINE GRAMMAR RULES
     //
 
-    
     this.quoteMultiline = new MDMultilineGrammarRule()
     this.quoteMultiline.startMatcher = [/^>> *$/, '<blockquote>']
     this.quoteMultiline.endMatcher = [/^<< *$/, '</blockquote>']
@@ -236,7 +239,7 @@ export class MDGrammar {
     this.div.startMatcher = [/^```([a-zA-Z]+) */, '<div class="$1"><div>']
     this.div.endMatcher = [/^``` *$/, '</div></div>']
     this.div.childrenInlineRules = this.globalRule.childrenInlineRules
-    this.div.childrenLineRules = [this.quote, this.alignCenter, this.alignRight, this.footer, this.horRule, this.br, this.p]
+    this.div.childrenLineRules = [this.quote, this.alignCenter, this.alignRight, this.footer, this.horRule, this.br, this.header, this.p]
     this.div.childrenMultilineRules = [this.ol, this.ul, this.table, this.quoteMultiline, this.div]
 
     this.globalRule.childrenMultilineRules = [this.ol, this.ul, this.table, this.quoteMultiline, this.div]
@@ -378,7 +381,7 @@ export const md = (parser: MDParser, text: string, absolutePathPrefix?: string, 
 
   if (mark)
     res = res.replace(new RegExp('(' + escapeRegExp(mark) + ')', 'gi'), '<mark>$1</mark>')
-  
+
   return res
 }
 

@@ -1,5 +1,16 @@
-Only image:
+### Only image
 [img:media/odyssey.png]
 
-Figure, image and figcaption:
-[img:media/odyssey.png, 2001: A Space Odyssey]
+### Image and caption
+[img:media/odyssey.png]
+[cap:A Space Odyssey]
+
+### Image and caption centered
+=> [img:media/odyssey.png]
+=> [cap:A Space Odyssey]
+
+[css]
+.md-caption {
+    font-size: 0.9rem;
+    color: #c0c1c288;
+}
